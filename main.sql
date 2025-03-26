@@ -48,7 +48,7 @@ values ((select id from customers where firstname = 'Bob'), now(), 0);
 
 insert into orderitems (orderid, productid, quantity, subtotal)
 values
-((select id from orders where total = 0), (select id from products where name = 'a'), 2, 200);
+((select id from orders where customer_id = (select id from customers where firstname = 'Bob')), (select id from products where name = 'a'), 2, 200);
 
 
 
