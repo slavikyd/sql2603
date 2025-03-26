@@ -1,0 +1,14 @@
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: postgres_container
+    ports:
+      - "5555:5432"
+    environment:
+      postgres_user: admin
+      postgres_password: admin
+      postgres_db: testdb
+    volumes:
+      - ./main.sql:/docker-entrypoint-initdb.d/script.sql
